@@ -1,0 +1,15 @@
+{
+  "name": "backendrcli",
+  "version": "1.0.0",
+  "description": "create your backends - models and controllers - by using commander via CLI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "s a masoud",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "commander": "^6.2.1"
+  }
+}
