@@ -1,20 +1,26 @@
 const program = require('commander');
 //import our generators menu
-const modelGenerator = require('./modelGenerator');
-const controllerGenerator = require('./controllerGenerator');
-const list = require('./list');
 const pingAPI = require('./pingAPI');
-//to do add a commander menu so we can call any CLI or genator from here
-// print menu
+//print menu
 program
-    .option('-d, --debug', 'output extra debugging')
-    .option('-s, --argz', 'args passed in')
-    .option('-p, --cli-type <type>', 'CLI chosen');
+    .option('-c, --class [type]', 'Type class to generate e.g. model or controller');
+//any args
 program.parse(process.argv);
-if (program.debug) console.log(program.opts());
-console.log('pizza details:');
-if (program.argz) console.log('- argz');
-if (program.cliType === 'model') modelGenerator();
-if (program.cliType === 'controller') controllerGenerator();
-if (program.cliType === 'list') list();
-if (program.cliType === 'pingAPI') pingAPI();
+//system flow and validation
+if (program.class === undefined) console.log('No class type argument and value defined. Please add one like so: node index.js --class controller');
+else if (program.class === true) console.log('Selected class type argument with no value. Please add one like so: node index.js --class model');
+else console.log(`Added class type ${program.class}. So we will go ahead and generate ${program.class}'s for you.`);
+//generate models
+if (program.class === 'model')
+    import('./modelGenerator.js')
+        .then((modelGenerator) => {
+            return modelGenerator;
+        }).catch((err) => { console.log(err) });
+//generate controllers
+if (program.class === 'controller')
+    import('./controllerGenerator.js')
+        .then((controllerGenerator) => {
+            return controllerGenerator;
+        }).catch((err) => { console.log(err) });
+//use our PING CLI as an API Pinger to PING any API
+if (program.class === 'pingAPI') pingAPI();
