@@ -1,7 +1,6 @@
 const fs = require('fs');
 const { modelTemp } = require('./modelTemp');
 
-var counter = 0;
 // export function to list coffee
 module.exports = function () {
     var i = i || 0;
@@ -33,7 +32,6 @@ module.exports = function () {
         });
         console.log('We generated the following models,', filename);
     }
-
     console.log('Done...');
     console.log('_______________________________________________');
 };

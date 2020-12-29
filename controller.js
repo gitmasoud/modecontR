@@ -1,4 +1,4 @@
-export default class Dashboard () {constructor(){} 
+export default class App () {constructor(){} 
    render(){        return( 
 <div> main content </div> ) } 
 }

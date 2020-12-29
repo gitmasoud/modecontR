@@ -1,12 +1,9 @@
 const fs = require('fs');
-const { controllerTemp } = require('./controllertemp');
+const { controllerTemp } = require('./controllerTemp');
 
 var counter = 0;
 // export function to list coffee
 module.exports = function () {
-    var i = i || 0;
-    var fileName = 'model_';
-    const controller = 'controller';
     console.log('Generating Controllers...');
     console.log('------------------');
 
