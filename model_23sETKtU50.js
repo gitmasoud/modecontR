@@ -1,1 +1,0 @@
-model = [{ name: 'Low', spoons: '1' }, ,{ name: 'Medium', spoons: '2' }, ,{name: 'High', spoons: '3'}, ,{ name: 'Very High', spoons: '4' }]
